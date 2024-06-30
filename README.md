@@ -13,10 +13,10 @@ A Python module that manages colors in an ANSI terminal emulator. The module inc
 
 3. The AnsiColorManager class should include:
 	* A static method generate_color_palette that takes a base Color object and generates a 16-color palette, including analogous colors, shades, tints, neutral colors, and variations to ensure uniqueness.
-	* Static methods to print the first 16 system colors (0-15) and the grayscale colors (232-255).
 
 4. Additional functions to:
 	* Print the 6x6x6 color cube.
+	* Print the first 16 system colors (0-15) and the grayscale colors (232-255).
 	* Visualize a given color palette in the terminal.
 	* Demonstrate generating and printing 8 different color palettes with various base colors.
 
