@@ -40,14 +40,17 @@ def visualize_palette_in_terminal(palette):
 
 
 def print_6x6x6_color_cube():
-    """
-    Print the 6x6x6 color cube in the terminal.
-    """
-    for r in range(6):
-        for g in range(6):
-            for b in range(6):
-                color = AnsiColorManager.Color(r, g, b)
-                color.print(f" {color.ansi():3} ", end='')
+    """Print the 6x6x6 color cube in the terminal in two rows with three grids each."""
+    for grid_row in range(2):
+        for row in range(6):
+            for grid_col in range(3):
+                for col in range(6):
+                    r = grid_row * 3 + grid_col
+                    g = row
+                    b = col
+                    color = AnsiColorManager.Color(r, g, b)
+                    color.print(f" {color.ansi():3} ", end='')
+                print("  ", end='')
             print()
         print()
 
@@ -78,7 +81,4 @@ if __name__ == "__main__":
     print_system_colors()
     print_6x6x6_color_cube()
     print_grayscale_colors()
-
-    print("Generated Color Palettes in Terminal:")
     demonstrate_palettes()
-
