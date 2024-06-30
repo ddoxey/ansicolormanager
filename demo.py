@@ -4,23 +4,27 @@ from ansicolormanager import AnsiColorManager
 
 
 def print_system_colors():
-    """
-    Print the first 16 system colors (0-15) in the ANSI 256-color palette.
-    """
-    for color_code in range(16):
-        color = AnsiColorManager.Color(0, 0, 0)
-        color.color_code = color_code
-        color.print(f"System color {color_code:3}")
+    """Print the first 16 system colors (0-15) in a 4x4 grid."""
+    for row in range(4):
+        for col in range(4):
+            color_code = row * 4 + col
+            color = AnsiColorManager.Color(0, 0, 0)
+            color.color_code = color_code
+            color.print(f" {color_code:2} ", end='')
+        print()
+    print()
 
 
 def print_grayscale_colors():
-    """
-    Print the grayscale colors (232-255) in the ANSI 256-color palette.
-    """
-    for color_code in range(232, 256):
-        color = AnsiColorManager.Color(0, 0, 0)
-        color.color_code = color_code
-        color.print(f"Grayscale color {color_code:3}")
+    """Print the grayscale colors (232-255) in a 4x4 grid."""
+    for row in range(4):
+        for col in range(4):
+            color_code = 232 + row * 4 + col
+            color = AnsiColorManager.Color(0, 0, 0)
+            color.color_code = color_code
+            color.print(f" {color_code:3} ", end='')
+        print()
+    print()
 
 
 def visualize_palette_in_terminal(palette):
@@ -31,7 +35,7 @@ def visualize_palette_in_terminal(palette):
         palette (list): A list of Color objects representing the color palette.
     """
     for color in palette:
-        color.print(f"{color.ansi():3}", end=' ')
+        color.print(f" {color.ansi():3} ", end='')
     print()
 
 
@@ -43,7 +47,7 @@ def print_6x6x6_color_cube():
         for g in range(6):
             for b in range(6):
                 color = AnsiColorManager.Color(r, g, b)
-                color.print(f"{color.ansi():3}", end=' ')
+                color.print(f" {color.ansi():3} ", end='')
             print()
         print()
 
@@ -64,10 +68,10 @@ def demonstrate_palettes():
     ]
 
     for i, base_color in enumerate(base_colors, start=1):
-        print(f"Palette {i}:")
+        base_color.print(f" Palette {i}: ", end='')
+        print(' ', end='')
         palette = AnsiColorManager.generate_color_palette(base_color)
         visualize_palette_in_terminal(palette)
-        print()
 
 
 if __name__ == "__main__":
