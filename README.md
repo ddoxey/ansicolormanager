@@ -22,3 +22,8 @@ A Python module that manages colors in an ANSI terminal emulator. The module inc
 
 5. Ensure the script is PEP8 compliant, including appropriate docstrings, type hints, and code formatting.
 Combine all these functionalities into a single script and ensure it runs correctly by including example usage in the __main__ block.
+
+
+
+### ./demo.py
+![Demo Screen Grab](ansicolormanager.png)
